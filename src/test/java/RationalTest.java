@@ -7,10 +7,60 @@ public class RationalTest {
     Rational r1;
     Rational r2;
 
+    @Test
+    public void testDefaultConstructor() {
+        Rational r = new Rational();
+
+        Assert.assertEquals(0, r.numerator);
+        Assert.assertEquals(1, r.denominator);
+    }
     /***
      * This method will be called every time before the other @Test method
      * is called.
      */
+    @Test
+    public void testSubtract(){
+        r1.numerator = 4;
+        r1.denominator = 9;
+        r2.numerator = 2;
+        r2.denominator = 5;
+        r1.subtract(r2);
+        Assert.assertEquals(2, r1.numerator);
+        Assert.assertEquals(45, r1.denominator);
+    }
+
+    @Test
+    public void testMultiply(){
+        r1.numerator = 5;
+        r1.denominator = 1;
+        r2.numerator = 2;
+        r2.denominator = 5;
+        r1.multiply(r2);
+        Assert.assertEquals(2, r1.numerator);
+        Assert.assertEquals(1, r1.denominator);
+    }
+
+    @Test
+    public void testDivide(){
+        r1.numerator = 5;
+        r1.denominator = 1;
+        r2.numerator = 2;
+        r2.denominator = 5;
+        r1.divide(r2);
+        Assert.assertEquals(25, r1.numerator);
+        Assert.assertEquals(2, r1.denominator);
+    }
+
+    @Test
+    public void testEquals(){
+        r1.numerator = 2;
+        r1.denominator = 4;
+        r2.numerator = 1;
+        r2.denominator = 2;
+        Assert.assertEquals(r1, r2);
+
+    }
+
     @Before
     public void createRationals() {
         System.out.println("Initializing the two Rational numbers.");
@@ -33,6 +83,18 @@ public class RationalTest {
         Assert.assertEquals(3, r1.numerator);
         Assert.assertEquals(4, r1.denominator);
     }
+
+    @Test
+    public void testAdd2() {
+        r1.numerator = 1;
+        r1.denominator = 3;
+        r2.numerator = 1;
+        r2.denominator = 3;
+        r1.add(r2);
+        Assert.assertEquals(2, r1.numerator);
+        Assert.assertEquals(3, r1.denominator);
+    }
+
 
     /***
      * This method will be called every time after the other @Test method
